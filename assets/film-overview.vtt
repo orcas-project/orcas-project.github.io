@@ -1,0 +1,106 @@
+WEBVTT
+
+00:00.100 --> 00:04.004
+ORCAs generates robot demonstrations from reusable programs.
+
+00:04.300 --> 00:12.612
+Robot learning needs diverse demonstrations. But collecting them in the
+physical world requires repeated human effort and scene resets.
+
+00:12.900 --> 00:21.635
+Simulation can reduce that burden. Prior work such as MimicGen expands seed
+demonstrations, yet new tasks still need reliable motions.
+
+00:21.900 --> 00:30.494
+To create those motions, agentic frameworks offer a starting point: write
+code, test execution, and improve robot behavior through feedback.
+
+00:30.800 --> 00:34.765
+ORCAs applies this idea, starting with a task and prepared simulator.
+
+00:35.500 --> 00:40.733
+Coding agents then develop a planning program, testing and repairing it in
+simulation.
+
+00:41.300 --> 00:46.573
+Once validated, the frozen program generates demonstrations across new initial
+states.
+
+00:47.200 --> 00:50.481
+Those demonstrations train a policy for the real robot.
+
+00:51.100 --> 00:54.990
+To build that program, the orchestrator first reads the task and tools.
+
+00:55.500 --> 00:58.652
+It assigns specialists to develop or repair the components.
+
+00:59.700 --> 01:02.612
+Specialists generate the required planning components.
+
+01:03.100 --> 01:06.785
+These include PDDL models and Python motion samplers.
+
+01:07.200 --> 01:10.920
+Simulation tests validate results; failures trigger repairs.
+
+01:11.300 --> 01:14.286
+Validated artifacts enter the archive for reuse.
+
+01:14.700 --> 01:22.086
+We first test generalization on LIBERO-PRO: thirty tasks, two perturbation
+types, and three thousand held-out evaluations.
+
+01:22.400 --> 01:27.854
+The tests also expose missed placements, control timeouts, and tasks with no
+valid program.
+
+01:28.200 --> 01:37.337
+Even with these failures, mean success reaches ninety-two point seven percent.
+Removing adaptive orchestration lowers it to eighty-two point three percent.
+
+01:37.600 --> 01:45.348
+We then move beyond rigid-object tasks, testing deformable manipulation and
+contact-rich assembly under a shared token budget.
+
+01:45.600 --> 01:52.322
+Starting with deformable objects, rope manipulation succeeds in twenty-six of
+thirty held-out evaluation states.
+
+01:52.600 --> 01:58.094
+The teddy task is harder: lifting and placing the bear succeeds in twelve of
+thirty held-out states.
+
+01:59.600 --> 02:06.262
+For precision assembly, peg insertion performs strongly, succeeding in twenty-
+nine out of thirty evaluation trials.
+
+02:06.600 --> 02:13.121
+Gear meshing is similarly reliable, with twenty-eight successes out of thirty
+trials across varied initial states.
+
+02:13.600 --> 02:21.208
+The archive also helps with new tasks, expanding coverage from five to six
+position tasks and seven to nine task variants.
+
+02:21.500 --> 02:25.425
+Finally, we test the full pipeline in a reconstructed real workspace.
+
+02:25.700 --> 02:28.377
+Here, the tasks are cube stacking and bowl stacking.
+
+02:28.700 --> 02:35.040
+Frozen programs then collect successful demonstrations in parallel, without
+further calls to the coding models.
+
+02:35.300 --> 02:42.666
+One thousand demonstrations take ninety-six minutes for cubes and one hundred
+twenty-four for bowls, including program development.
+
+02:43.000 --> 02:50.708
+Trained on this data, the policy achieves seventy-five percent success in cube
+stacking. The footage is a teleoperation reference.
+
+02:51.000 --> 02:59.775
+Bowl stacking reaches ninety-five percent. Together, these results show how
+reusable programs generate training data for real robot skills.

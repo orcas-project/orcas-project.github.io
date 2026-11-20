@@ -1,0 +1,15 @@
+_site/
+__pycache__/
+*.pyc
+
+# Local production materials and exports are not part of the public repository.
+video/
+unused/
+public-export/
+
+# Local archives and downloads.
+*.zip
+
+# Local clutter.
+.DS_Store
+*.log
